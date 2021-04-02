@@ -1,0 +1,158 @@
+@import "./_handle.scss";
+
+html,
+body,
+ul,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+button,
+input,
+a {
+  line-height: 1.6;
+  font-weight: 400;
+}
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dt,
+dd,
+ul,
+li,
+pre,
+p,
+iframe {
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei",
+    "WenQuanYi Micro Hei";
+}
+a {
+  text-decoration: none;
+}
+ul,
+li {
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+.w {
+  width: 1200px;
+  margin: auto;
+  box-sizing: border-box;
+}
+.e {
+  font-size: 0;
+}
+.f_medium {
+  font-family: "PingFangSC-Medium", "PingFang SC";
+}
+.c_green {
+  color: #00b036 !important;
+}
+.green_info {
+  opacity: 0;
+  margin-right: 6px;
+  transition: all 0.2s linear;
+}
+.title-slot-line,
+.noLimit {
+  &:hover {
+    .green_info {
+      opacity: 1;
+    }
+  }
+}
+.module-title {
+  margin-bottom: 14px !important;
+  border: none !important;
+  font-size: 14px;
+  @include background_color("background_color8");
+  @include font_color("font_color_tags");
+  cursor: initial !important;
+  border-radius: 0 18px 18px 0 !important;
+}
+[data-theme="dark"] .e-container {
+  font-size: 14px !important;
+  @include font_color("font_color");
+  p,
+  h2,
+  h3,
+  h4,
+  h5 {
+    line-height: 35px !important;
+    color: #b8bfda !important;
+    font-weight: normal !important;
+    span,
+    strong,
+    u,
+    em,
+    i,
+    div {
+      color: #b8bfda !important;
+    }
+  }
+}
+[data-theme="dark"] .question-content .question-text {
+  p {
+    font-size: 14px;
+    span,
+    strong,
+    u {
+      color: #fff !important;
+    }
+  }
+  h2,
+  h3,
+  h4,
+  h5 {
+    span,
+    em {
+      color: #fff !important;
+    }
+  }
+}
+[data-theme="light"] .e-container {
+  font-size: 14px !important;
+  @include font_color("font_color");
+  p {
+    line-height: 30px !important;
+    font-weight: normal !important;
+    strong {
+      color: #333333 !important;
+    }
+    span {
+      line-height: 30px;
+      color: #333333 !important;
+    }
+  }
+}
+[data-theme="light"] .question-content .question-text {
+  p {
+    span {
+      color: #333333 !important;
+    }
+    strong {
+      color: #333333 !important;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+/*
+ * 样式变量表
+ * 支持深色模式 & 浅色模式切换
+ **/
+
+$themes: (
+  light: (
+    //字体
+    font_color: #333333,
+    font_color_tags:#ffffff,
+    font_color_f: #ffffff,
+    font_color01: #2890ff,
+    font_color_t: #ff8f00,
+    font_color_c:  #ffffff,
+    font_color_m: #3b4859,
+    font_color_q: #333333,
+    font_color_z: #333333,
+    font_color_o: #3b4859,
+    font_disabled:#264568,
+    //背景
+    background_color1: #fff,
+    background_color2: rgba(40, 144, 255, 0.1),
+    background_color3: #ffffff,
+    background_color4: #2890ff,
+    background_color5: #f8f8f8,
+    background_color6: #ffffff,
+    background_color7: #f8f8f8,
+    background_color8: #2890ff,
+    background_btn: #E8F3FF,
+
+
+    //边框
+    border_color1: #00caff,
+    border_color2: #002a47,
+    border_color3: #ffffff,
+  ),
+  dark: (
+    //字体
+    // font_color: #b0b9db,
+    font_color: #B8BFDA,
+    font_color_tags:#ffffff,
+    font_color_f: #ffffff,
+    font_color01: #2890ff,
+    font_color_t: #ff8f00,
+    font_color_c: #00caff,
+    font_color_m: #ffffff,
+    font_color_q: #ffffff,
+    font_color_z: #2890ff,
+    font_color_o: #00caff,
+    font_disabled:#264568,
+    //背景
+    background_color1: #1b2531,
+    background_color2: rgba(40, 144, 255, 0.1),
+    background_color3: #00152f,
+    background_color4: #08274a,
+    background_color5: #252b44,
+    background_color6: #002A47,
+    background_color7: #08274a,
+    background_color8: #2890ff,
+    background_btn: #08274a,
+
+    //边框
+    border_color1: #00caff,
+    border_color2: #002a47,
+    border_color3: #08274a,
+  )
+);

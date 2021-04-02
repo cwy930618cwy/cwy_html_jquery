@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <section class="login-container slogin">
+      <div class="login-content srow" :style="{ height: imgCaptchaInfo.showImg ? '560px' : '500px' }">
+          <div class="poster">
+            <h2 class="class-title">扣丁小站</h2>
+          </div>
+          <section class="login">
+            <h3 class="login-title" style="marginBottom: 30px;">欢迎登录扣丁小站</h3>
+            <div
+              @keyup.enter.native="handleLogin"
+              :model="formData"
+              :rules="rules"
+              ref="loginForm"
+              class="login-form"
+              size="medium"
+            >
+              <div prop="userName" class="userName-row">
+                <p>用户名</p>
+                <div class="form_demo">
+                  <div class="input_box">
+                    <input class="name" placeholder="请输入用户名"></input>
+                  </div>
+                </div>
+              </div>
+              <div prop="password" class="password-row">
+                <p>密码</p>
+                <div class="form_demo">
+                  <div class="input_box">
+                    <input class="password"
+                            show-password
+                            maxlength="20"
+                            placeholder="密码">
+                    <span slot="prefix"
+                          class="passwordImg"></span>
+                  </div>
+                  </input>
+                </div>
+              </div>
+  
+              <button @click="handleLogin" class="to-login">登录</button>
+            </div>
+          </section>
+      </div>
+    </section>
+  <script>
+      $(function() {
+        $(".name").focus(function(){
+          $(".name").removeClass("warning");
+        })
+        $(".password").focus(function(){
+          $(".password").removeClass("warning");
+        })
+        $(".to-login").click(function(){
+          var name = $(".name").val()
+          var password = $(".password").val()
+          if(name == ''){
+            $(".name").addClass('warning')
+          }else if(password == ''){
+            $(".password").addClass('warning')
+          }else{
+            $.cookie('name', $(".name").val(), { expires: 7 })
+            $.cookie('password', $(".password").val(), { expires: 7 })
+            window.location.href = 'file:///D:/work/html/detail.html'
+          }
+        })
+
+      });
+  </script>
+</body>
+<style>
+
+.login-container {
+}
+  .other-type {
+    margin-top: 52px;
+  }
+  .login {
+    width: 400px;
+    box-sizing: border-box;
+    padding: 40px 26px 34px;
+  }
+  .img-code-row {
+  }
+    .form_demo{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .input_box{
+      position: relative;
+      font-size: 14px;
+      display: inline-block;
+      width: 100%;
+    }
+    .input_box input{
+      -webkit-appearance: none;
+      background-color: #fff;
+      background-image: none;
+      border-radius: 4px;
+      border: 1px solid #dcdfe6;
+      box-sizing: border-box;
+      color: #606266;
+      display: inline-block;
+      font-size: inherit;
+      height: 40px;
+      line-height: 40px;
+      outline: none;
+      padding: 0 15px;
+      transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+      width: 100%;
+      padding-left: 60px;
+    }
+    .btn-get-authCode {
+      margin-left: 8px;
+    }
+    .img-code {
+      display: inline-block;
+      width: 104px;
+      height: 44px;
+      box-sizing: border-box;
+      border: 1px solid #dcdcdc;
+      border-radius: 4px;
+    }
+  
+  .userName-captcha-row {
+    position: relative;
+  }
+    .get-userName-captcha {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: #999999;
+    }
+  
+  .btn-wechat-login {
+    width: 348px;
+    height: 44px;
+    border: none;
+    padding: 0;
+    line-height: 44px;
+    background: #f5f5f5;
+    position: relative;
+    border-radius: 4px;
+    text-indent: 44px;
+    font-size: 12px;
+  
+}
+.login-form {
+}
+  .form_demo {
+    position: relative;
+  }
+  .form_demo::before {
+      display: block;
+      content: '';
+      width: 44px;
+      height: 24px;
+      box-sizing: border-box;
+      border-right: 1px solid #d8d8d8;
+      background-size: 12px;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+  
+  .userName-row {
+    margin-bottom: 10px;
+  }
+  .userName-row .form_demo::before {
+    background-image: url('./assets/images/icon/phone.png');
+  }
+  .userName-row p{
+    margin-bottom: 6px;
+  }
+  
+  .password-row {
+  }
+    .password-row .form_demo::before {
+      background-image: url('./assets/images/icon/Security_Verification.png');
+    }
+    .password-row p{
+      margin-bottom: 6px;
+    }
+  
+  .to-login {
+    margin-top: 20px;
+    width: 348px;
+    height: 44px;
+    background: linear-gradient(90deg, #00b036 0%, #00d866 100%);
+    box-shadow: 0px 3px 14px 0px rgba(0, 176, 54, 0.39);
+    color: #ffffff;
+  }
+
+.slogin{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slogin .srow{
+    width: auto;
+  }
+
+
+  .login-container {
+    background: #c0fff2 url("./assets/images/login/coding_login_bgimg.png")
+    center/1920px 1080px no-repeat;
+    border-radius: 15px;
+  }
+  .login-content {
+    display: flex;
+    width: 100%;
+    height: 508px;
+    border-radius: 16px;
+    box-shadow: 0px 0px 86px 0px rgba(0, 43, 13, 0.07);
+    background-color: #ffffff;
+  }
+  .poster {
+    width: 316px;
+    height: 100%;
+    background: url("./assets/images/login/login_left_bgimg.png") center/100% 100%
+      no-repeat;
+    font-size: 0;
+  }
+  .login-title {
+    margin-bottom: 51px;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: center;
+    font-size: 24px;
+    color: #333333;
+  }
+
+.warning{
+  border-color: red !important;
+}
+
+
+p{
+  margin: 0;
+  padding: 0;
+}
+
+input,button,select,textarea{outline:none}
+textarea{resize:none}
+input,button,select,textarea{outline:none} textarea{resize:none}
+button {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border-radius: 0;
+  background-color: transparent;
+  line-height: inherit;
+  width: max-content;
+}
+button:after {
+  border: none;
+}
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+</style>
+</html>
